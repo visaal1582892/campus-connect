@@ -8,8 +8,51 @@
     <meta name="keywords" content="campus connect, student, registration, html, css, javascript">
     <meta name="robots" content="INDEX, FOLLOW">
     <title>Student Registration System</title>
+    <link rel="stylesheet" href="./src/output.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Poppins&family=Roboto&family=Nunito&display=swap" rel="stylesheet">
+    <script src="./src/app.js"></script>
 </head>
-<body>
-    
+<body class="h-dvh box-border flex flex-col w-dvw justify-center items-center">
+    <header class="h-[15%] w-[100%] flex flex-col justify-center items-center bg-blue-500">
+        <h1 class="text-center font-bold font-poppins text-2xl text-gray-200">Campus Connect</h1>
+    </header>
+    <nav class="w-[28%] h-[6%] fixed top-[91%] flex flex-row justify-around items-center p-0.5">
+        <a href="#" class="w-[40%] h-[100%] flex flex-col justify-center items-center">
+            <img src="/public/images/homeIcon.png" alt="homeIcon" class="h-[100%]">
+        </a>
+        <a href="#" class="w-[40%] h-[100%] flex flex-col justify-center items-center">
+            <img src="/public/images/editIcon.png" alt="editIcon" class="h-[100%]">
+        </a>
+    </nav>
+    <main class="h-dvh w-[100%] bg-gradient-to-tr from-indigo-300 to-blue-200">
+        <section class="h-[80vh] flex flex-col justify-start gap-[6%] items-center px-7 py-8 w-[100%]">
+            <blockquote class="font-poppins font-bold text-blue-800 text-center">
+                Welcome to Campus Connect - Enter the Student Details Below
+            </blockquote>
+            <form action="./index.html" class="bg-white/20 flex flex-col w-[100%] justify-around items-center font-mono tracking-widest rounded-2xl py-3 px-4 min-h-[55vh] border-2 border-gray-400 shadow-lg">
+                <div class="formElement">
+                    <label for="name" class="w-[100%] text-blue-800 font-bold text-base">Student Name</label>
+                    <input class="input" type="text" name="name" placeholder="Rohit Varma Datla">
+                </div>
+                <div class="formElement">
+                    <label for="id" class="w-[100%] text-blue-800 font-bold text-base">Student ID</label>
+                    <input class="input" type="number" name="id" placeholder="001">
+                </div>
+                <div class="formElement">
+                    <label for="email" class="w-[100%] text-blue-800 font-bold text-base">Email</label>
+                    <input class="input invalid:text-pink-600 invalid:border-none invalid:focus:outline-pink-600" type="email" name="email" placeholder="youremail@example.com">
+                </div>
+                <div class="formElement">
+                    <label for="contact" class="w-[100%] text-blue-800 font-bold text-base">Contact No</label>
+                    <input class="input" type="number" name="contact" placeholder="9876543210">
+                </div>
+                <input type="submit" value="Add Student" class="bg-blue-500 rounded-xl p-2 font-bold text-gray-200 hover:bg-blue-400 active:bg-blue-700 focus:outline-none
+                focus:ring-2 focus:ring-indigo-600 focus:ring-offset-2 shadow-md">
+            </form> 
+        </section>
+        <section id="students" class="">
+            
+        </section>
+    </main>
 </body>
 </html>

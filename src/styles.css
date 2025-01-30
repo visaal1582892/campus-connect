@@ -1,2 +1,15 @@
 @import "tailwindcss";
 
+@theme{
+    --font-poppins: Poppins, sans-serif;
+}
+
+@layer components{
+    .input{
+        @apply h-[50%] text-slate-700 font-semibold w-[100%] rounded-lg border-[1px] focus:outline-2 focus:outline-blue-500 border-gray-500/50 shadow-md px-2 text-lg;
+    }
+
+    .formElement{
+        @apply flex flex-col h-[20%] w-[100%] justify-center items-center gap-[5%];
+    }
+}
