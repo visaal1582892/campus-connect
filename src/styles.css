@@ -2,14 +2,48 @@
 
 @theme{
     --font-poppins: Poppins, sans-serif;
+    --animate-show: show 0.5s linear; 
+
+    @keyframes show{
+        0%{
+            transform: -translate-y-10;
+            opacity: 0;
+        }
+        100%{
+            transform: translate-y-0;
+            opacity: 1;
+        }
+    } 
 }
 
 @layer components{
     .input{
-        @apply h-[50%] text-slate-700 font-semibold w-[100%] rounded-lg border-[1px] focus:outline-2 focus:outline-blue-500 border-gray-500/50 shadow-md px-2 text-lg;
+        @apply h-[50%] text-slate-700 font-semibold w-[100%] rounded-lg border-[1px] focus:outline-2 focus:outline-blue-500 border-gray-500/50 shadow-md px-2 text-base placeholder:text-base placeholder:font-light placeholder:text-gray-500/60;
     }
 
     .formElement{
         @apply flex flex-col h-[20%] w-[100%] justify-center items-center gap-[5%];
     }
+
+    .hiddenBlock{
+        @apply bg-gradient-to-bl from-blue-200 to-pink-200/80 w-[100%] top-[110%] rounded-2xl grid-cols-8 grid-rows-4 p-4 text-base auto-rows-[4%] gap-2 border-1 border-slate-500 h-56 hidden duration-400 font-sans font-bold;
+    }
+
+    .visibleBlock{
+        @apply bg-blue-500 text-gray-200 w-[100%] flex rounded-2xl items-center text-2xl justify-between h-14 px-4 shrink-0 grow;
+    }
+
+    .studentBlock{
+        @apply flex flex-col w-[100%] justify-center gap-1.5;
+    }
+
+    .submitButton{
+        @apply bg-blue-500 rounded-xl p-2 font-bold text-gray-200 hover:bg-blue-400 active:bg-blue-700 focus:outline-none
+        focus:ring-2 focus:ring-pink-600 focus:ring-offset-2 shadow-md;
+    }
+
+    .toggleButton{
+        @apply bg-gradient-to-bl from-blue-300 to-pink-200 h-10 w-10 flex items-center justify-center rounded-full text-blue-800 transition-transform duration-400 cursor-pointer;
+    }
+
 }

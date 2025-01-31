@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth box-border scroll-p-20">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,49 +11,109 @@
     <title>Student Registration System</title>
     <link rel="stylesheet" href="./src/output.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Poppins&family=Roboto&family=Nunito&display=swap" rel="stylesheet">
-    <script src="./src/app.js"></script>
 </head>
-<body class="h-dvh box-border flex flex-col w-dvw justify-center items-center">
-    <header class="h-[15%] w-[100%] flex flex-col justify-center items-center bg-blue-500">
-        <h1 class="text-center font-bold font-poppins text-2xl text-gray-200">Campus Connect</h1>
+
+<!-- Body Starts -->
+
+<body class="flex flex-col w-dvw justify-start items-center">
+
+    <!-- Header Starts -->
+
+    <header class="h-[15vh] w-[100%] flex flex-col justify-center items-center bg-blue-500">
+        <h1 class="text-center font-bold font-poppins text-3xl text-gray-200">Campus Connect</h1>
     </header>
-    <nav class="w-[28%] h-[6%] fixed top-[91%] flex flex-row justify-around items-center p-0.5">
-        <a href="#" class="w-[40%] h-[100%] flex flex-col justify-center items-center">
-            <img src="/public/images/homeIcon.png" alt="homeIcon" class="h-[100%]">
+
+    <!-- Header Ends -->
+
+    <!-- Floating Navbar Starts -->
+
+    <nav class="w-[100%] h-[8vh] fixed top-[90%] flex flex-row justify-around items-center p-0.5 opacity-70 z-10">
+        <a href="#" class="h-[100%] flex justify-center items-center">
+            <img src="/public/images/homeIcon.png" alt="homeIcon" class="h-[100%] rounded-full shadow-xl">
         </a>
-        <a href="#" class="w-[40%] h-[100%] flex flex-col justify-center items-center">
-            <img src="/public/images/editIcon.png" alt="editIcon" class="h-[100%]">
+        <a href="#display" class=" h-[100%] flex justify-center items-center">
+            <img src="/public/images/editIcon.png" alt="editIcon" class="h-[100%] rounded-full shadow-xl">
         </a>
     </nav>
-    <main class="h-dvh w-[100%] bg-gradient-to-tr from-indigo-300 to-blue-200">
-        <section class="h-[80vh] flex flex-col justify-start gap-[6%] items-center px-7 py-8 w-[100%]">
+
+    <!-- Floating Navbar Ends -->
+
+    <!-- Main Starts -->
+
+    <main id="main" class="w-[100%] bg-gradient-to-tr from-blue-200 to-pink-200/80 flex flex-row justify-center items-start flex-wrap gap-[7vh]">
+
+        <!-- Registration Section Starts -->
+
+        <section class="h-[78vh] flex flex-col justify-start gap-[6%] items-center px-4 py-8 w-[100%]">
             <blockquote class="font-poppins font-bold text-blue-800 text-center">
-                Welcome to Campus Connect - Enter the Student Details Below
+                Welcome to Campus Connect - Register the Student Details Below
             </blockquote>
-            <form action="./index.html" class="bg-white/20 flex flex-col w-[100%] justify-around items-center font-mono tracking-widest rounded-2xl py-3 px-4 min-h-[55vh] border-2 border-gray-400 shadow-lg">
+
+            <!-- Form Starts -->
+
+            <form action="./index.html" class="bg-white/20 flex flex-col w-[100%] justify-around items-center font-mono tracking-widest rounded-2xl py-3 px-4 h-[72%] border-1 border-slate-500 shadow-lg" id="form">
+
+                <!-- Name Input -->
+
                 <div class="formElement">
                     <label for="name" class="w-[100%] text-blue-800 font-bold text-base">Student Name</label>
-                    <input class="input" type="text" name="name" placeholder="Rohit Varma Datla">
+                    <input class="input" type="text" name="name" placeholder="Rohit Varma Datla" required>
                 </div>
+
+                <!-- Id Input -->
+
                 <div class="formElement">
                     <label for="id" class="w-[100%] text-blue-800 font-bold text-base">Student ID</label>
-                    <input class="input" type="number" name="id" placeholder="001">
+                    <input class="input" type="number" name="id" placeholder="001" required>
                 </div>
+
+                <!-- Email Input -->
+
                 <div class="formElement">
                     <label for="email" class="w-[100%] text-blue-800 font-bold text-base">Email</label>
-                    <input class="input invalid:text-pink-600 invalid:border-none invalid:focus:outline-pink-600" type="email" name="email" placeholder="youremail@example.com">
+                    <input class="input invalid:text-pink-600 invalid:border-none invalid:focus:outline-pink-600" type="email" name="email" placeholder="youremail@optional.com">
                 </div>
+
+                <!-- Contact Input -->
+
                 <div class="formElement">
                     <label for="contact" class="w-[100%] text-blue-800 font-bold text-base">Contact No</label>
-                    <input class="input" type="number" name="contact" placeholder="9876543210">
+                    <input class="input" type="number" name="contact" placeholder="9876543210" required>
                 </div>
-                <input type="submit" value="Add Student" class="bg-blue-500 rounded-xl p-2 font-bold text-gray-200 hover:bg-blue-400 active:bg-blue-700 focus:outline-none
-                focus:ring-2 focus:ring-indigo-600 focus:ring-offset-2 shadow-md">
+
+                <!-- Submit Button -->
+
+                <input type="submit" value="Add Student" class="submitButton my-4">
             </form> 
+
+            <!-- Form Ends -->
+
         </section>
-        <section id="students" class="">
-            
+
+        <!-- Registration Section Ends -->
+
+        <!-- Display Section Starts -->
+
+        <section id="displaySection" class="flex flex-col justify-start items-center h-[100vh] w-[100%] text-blue-700 px-4 py-7 gap-[4%]">
+            <h2 class="text-3xl font-poppins font-bold">Student Details</h2>
+            <div id="display" class="flex flex-col justify-start gap-[2%] items-center bg-white/20 h-[72%] w-[100%] rounded-2xl border-1 border-slate-500 overflow-scroll p-3 font-sans">
+
+                <!-- Adds Rows Dynamically Using JS -->
+
+            </div>
         </section>
+        
+        <!-- Display Section Ends -->
+
     </main>
+
+    <!-- Main Ends -->
+
+    <!-- Linking Js File -->
+
+    <script src="./src/app.js"></script>
 </body>
+
+<!-- Body Ends -->
+
 </html>
