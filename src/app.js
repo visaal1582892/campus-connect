@@ -1,9 +1,49 @@
+function editStudent(event){
+    const hiddenBlock=event.target.parentNode.parentNode;
+    const originalHiddenBlock=hiddenBlock.cloneNode(true);
+    const oldElementNames=["name", "id", "email", "contact"];
+    const oldElementTypes=["text", "number", "email", "number"];
+    for(let i=0; i<4; i++){
+        const oldElement=hiddenBlock.querySelector(`.${oldElementNames[i]}`);
+        const inputElement=document.createElement('input');
+        inputElement.className='editInput';
+        inputElement.type=`.${oldElementTypes[i]}`;
+        inputElement.placeholder='Enter New Value';
+        inputElement.value=oldElement.textContent.trim();
+        inputElement.setAttribute('name', `${oldElementNames[i]}`);
+        console.log(`${oldElementNames[i]}`!='email');
+        inputElement.setAttribute('required', `${oldElementNames[i]}`!='email');
+        oldElement.replaceWith(inputElement);
+        if(i===0){
+            inputElement.focus();
+        }
+    }
+    const optionsBlock=hiddenBlock.querySelector('.options');
+    optionsBlock.classList.remove('col-start-5', 'col-span-6');
+    optionsBlock.classList.add('col-span-10');
+    optionsBlock.innerHTML=`<button class="submitButton saveButton">
+    Save
+    </button>
+    <button class="submitButton cancelButton">
+        Cancel
+    </button>`
+    optionsBlock.querySelector('.saveButton').addEventListener('click', save);
+    // optionsBlock.querySelector('.cancelButton').addEventListener('click', );
+    function save(event){
+        event.preventDefault();
+        const formData=Object.fromEntries(event.target.parentNode.parentNode.querySelectorAll('input').values().toArray().map((input)=> [input.name,  input.value]));
+        localStorage.removeItem(formData.id);
+        validateAndAdd(formData, 'save');
+    }
+}
+
 function deleteStudent(event){
     const id=event.target.parentNode.parentNode.parentNode.id;
     console.log(id.substring(2));
     localStorage.removeItem(id.substring(2));
     location.reload();
 }
+
 function toggleDetails(event){
     event.target.classList.toggle('rotate-[180deg]');
     const id=event.target.parentNode.parentNode.id;
@@ -11,11 +51,18 @@ function toggleDetails(event){
     hiddenBlock.classList.toggle('grid');
     hiddenBlock.classList.toggle('animate-show');
 }
+
 function displayStudents(){
     const display=document.getElementById("display");
     const students=[];
     for(let i of Object.keys(localStorage)){
         students.unshift(JSON.parse(localStorage.getItem(i)));
+    }
+    if(students.length===0){
+        const emptyDisplay=`<img src="/public/images/emptyIcon.png" alt="emptyIcon" class="opacity-20 w-[80%]">
+                <p class="text-2xl font-bold text-gray-400">No Data Available. Please Register Above</p>`;
+        display.innerHTML+=emptyDisplay;
+        return;
     }
     students.forEach((student) => {
         const studentRow=`<article id=id${student.id} class="studentBlock">
@@ -28,45 +75,45 @@ function displayStudents(){
                         </button>
                     </div>
                     <div class="hiddenBlock">
-                        <p class="col-span-2 text-start flex items-center overflow-hidden text-blue-800 font-bold font-poppins">
+                        <p class="col-span-3 text-start flex items-center overflow-hidden text-blue-800 font-bold font-poppins">
                             Name
                         </p>
                         <p class="col-span-1 text-start flex items-center overflow-hidden font-mono text-gray-700">
                             :
                         </p>
-                        <p class="col-span-5 text-start flex items-center overflow-scroll font-mono text-gray-700">
+                        <p class="col-span-6 text-start flex whitespace-nowrap items-center overflow-x-scroll font-mono text-gray-700 name">
                             ${student.name}
                         </p>
-                        <p class="col-span-2 text-start flex items-center overflow-hidden text-blue-800 font-bold font-poppins">
+                        <p class="col-span-3 text-start flex items-center overflow-hidden text-blue-800 font-bold font-poppins">
                             Id
                         </p>
                         <p class="col-span-1 text-start flex items-center overflow-hidden font-mono text-gray-700">
                             :
                         </p>
-                        <p class="col-span-5 text-start flex items-center overflow-scroll font-mono text-gray-700">
+                        <p class="col-span-6 text-start flex whitespace-nowrap items-center overflow-x-scroll font-mono text-gray-700 id">
                             ${student.id}
                         </p>
-                        <p class="col-span-2 text-start flex items-center overflow-hidden text-blue-800 font-bold font-poppins">
+                        <p class="col-span-3 text-start flex items-center overflow-hidden text-blue-800 font-bold font-poppins">
                             Email
                         </p>
                         <p class="col-span-1 text-start flex items-center overflow-hidden font-mono text-gray-700">
                             :
                         </p>
-                        <p class="col-span-5 text-start flex items-center overflow-scroll font-mono text-gray-700">
+                        <p class="col-span-6 text-start flex whitespace-nowrap items-center overflow-x-scroll font-mono text-gray-700 email">
                             ${student.email}
                         </p>
-                        <p class="col-span-2 text-start flex items-center overflow-hidden text-blue-800 font-bold font-poppins">
+                        <p class="col-span-3 text-start flex items-center overflow-hidden text-blue-800 font-bold font-poppins">
                             Contact
                         </p>
                         <p class="col-span-1 text-start flex items-center overflow-hidden font-mono text-gray-700">
                             :
                         </p>
-                        <p class="col-span-5 text-start flex items-center overflow-scroll font-mono text-gray-700">
+                        <p class="col-span-6 text-start flex whitespace-nowrap items-center overflow-x-scroll font-mono text-gray-700 contact">
                             ${student.contact}
                         </p>
-                        <div class="col-start-5 col-span-4 row-span-4 flex justify-around items-center">
-                            <img src="/public/images/editIcon.png" alt="homeIcon" class="h-[80%] rounded-full shadow-xl homeIcon">
-                            <img src="/public/images/deleteIcon.png" alt="deleteIcon" class="h-[80%] rounded-full shadow-xl deleteIcon">
+                        <div class="col-start-5 col-span-6 row-span-4 flex justify-around items-center options">
+                            <img src="/public/images/editIcon.png" alt="editIcon" class="h-[80%] rounded-full shadow-xl cursor-pointer editIcon">
+                            <img src="/public/images/deleteIcon.png" alt="deleteIcon" class="h-[80%] rounded-full shadow-xl cursor-pointer deleteIcon">
                         </div>
                     </div>
                 </article>`
@@ -75,7 +122,7 @@ function displayStudents(){
     );
 
 }
-function validateAndAdd(formData){
+function validateAndAdd(formData, type='submit'){
     const errorMessages=[];
     if(/^[a-z A-Z\s]{3,}$/.test(formData.name)===false){
         errorMessages.push("INVALID STUDENT NAME : Name should contain only alphabets with at least 3 characters");
@@ -95,7 +142,12 @@ function validateAndAdd(formData){
         }
         else{
             localStorage.setItem(formData.id, JSON.stringify(formData));
-            alert("Student Added Successfully");
+            if(type=='save'){
+                alert("Student Details Modified Successfully");
+            }
+            else if(type=='submit'){
+                alert("Student Added Successfully");
+            }
             document.getElementById("form").reset();
             location.reload();
         }
@@ -120,11 +172,16 @@ toggleButtons.forEach((toggleButton) => {
     toggleButton.addEventListener('click', toggleDetails);
 });
 
-// Handling Delete Botton Events
+// Handling Delete Button Events
 const deleteButtons=document.querySelectorAll('.deleteIcon');
 deleteButtons.forEach((deleteButton) => {
     deleteButton.addEventListener('click', deleteStudent);
 });
 
+// Handling Edit Button Events
+const editButtons=document.querySelectorAll('.editIcon');
+editButtons.forEach((editButton) => {
+    editButton.addEventListener('click', editStudent);
+});
 
 

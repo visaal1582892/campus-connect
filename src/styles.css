@@ -26,7 +26,7 @@
     }
 
     .hiddenBlock{
-        @apply bg-gradient-to-bl from-blue-200 to-pink-200/80 w-[100%] top-[110%] rounded-2xl grid-cols-8 grid-rows-4 p-4 text-base auto-rows-[4%] gap-2 border-1 border-slate-500 h-56 hidden duration-400 font-sans font-bold;
+        @apply bg-gradient-to-bl from-blue-200 to-pink-200/80 w-[100%] rounded-2xl grid-cols-10 grid-rows-4 p-4 text-balance auto-rows-[4%] gap-2 border-1 border-slate-500 h-60 hidden duration-400 font-sans font-bold;
     }
 
     .visibleBlock{
@@ -39,11 +39,15 @@
 
     .submitButton{
         @apply bg-blue-500 rounded-xl p-2 font-bold text-gray-200 hover:bg-blue-400 active:bg-blue-700 focus:outline-none
-        focus:ring-2 focus:ring-pink-600 focus:ring-offset-2 shadow-md;
+        focus:ring-2 focus:ring-pink-600 focus:ring-offset-2 shadow-md cursor-pointer;
     }
 
     .toggleButton{
         @apply bg-gradient-to-bl from-blue-300 to-pink-200 h-10 w-10 flex items-center justify-center rounded-full text-blue-800 transition-transform duration-400 cursor-pointer;
+    }
+
+    .editInput{
+        @apply col-span-6 text-start flex items-center font-mono text-gray-700 rounded-lg border-[1px] focus:outline-2 focus:outline-blue-500 border-gray-500/50 shadow-md px-2 text-base placeholder:text-base placeholder:font-light placeholder:text-gray-500/60;
     }
 
 }
