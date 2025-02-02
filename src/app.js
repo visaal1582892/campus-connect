@@ -2,6 +2,7 @@
 function editStudent(event){
     // creating variables for hidden block and its id
     const hiddenBlock=event.target.parentNode.parentNode;
+    const originalHiddenBlock=hiddenBlock.cloneNode(true);
     const id=hiddenBlock.querySelector('.id').innerHTML.trim();
 
     // creating two arrays and iterating them for creating input elements for editing
@@ -45,15 +46,15 @@ function editStudent(event){
         event.preventDefault();
         const formData=Object.fromEntries(event.target.parentNode.parentNode.querySelectorAll('input').values().toArray().map((input)=> [input.name,  input.value]));
         console.log(hiddenBlock);
-        if(id==formData.id || localStorage.getItem(formData.id)===null){
-            localStorage.removeItem(id);
-            formData.createdAt=Date.now();
-            validateAndAdd(formData, 'save');
+        formData.createdAt=Date.now();
+        if(id==formData.id){
+            validateAndAdd(formData, 'noRemove');
+        }
+        else if(localStorage.getItem(formData.id)===null){
+            validateAndAdd(formData, id);
         }
         else{
-            if(localStorage.getItem(formData.id)!==null){
-                alert("ERROR : Given Student Id already exists enter new one");
-            }
+            alert("ERROR : Given Student Id already exists enter new one");
         }
     }
 }
@@ -166,19 +167,21 @@ function validateAndAdd(formData, type='submit'){
         errorMessages.splice(0, errorMessages.length);
     }
     else{
-        if(formData.id in localStorage){
-            alert(`ERROR : Given Student Id ${formData.id} already exists`);
+        if(type=='submit'){
+            if(formData.id in localStorage){
+                alert(`ERROR : Given Student Id ${formData.id} already exists`);
+            }
+            else{
+                localStorage.setItem(formData.id, JSON.stringify(formData));
+                location.reload();
+            }
         }
         else{
+            if(type!='noRemove'){
+                localStorage.removeItem(type);
+            }
             localStorage.setItem(formData.id, JSON.stringify(formData));
-            if(type=='save'){
-                alert("Student Details Modified Successfully");
-                location.reload();
-            }
-            else if(type=='submit'){
-                alert("Student Added Successfully");
-                location.reload();
-            }
+            location.reload();
         }
     }
 }
@@ -190,7 +193,6 @@ function submitEvent(event){
     formData["createdAt"]=Date.now();
     validateAndAdd(formData);
 }
-
 // Displaying Students
 displayStudents();
 
