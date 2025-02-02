@@ -29,6 +29,7 @@ function editStudent(event){
     </button>`
     optionsBlock.querySelector('.saveButton').addEventListener('click', save);
     optionsBlock.querySelector('.cancelButton').addEventListener('click', () => location.reload());
+    hiddenBlock.parentNode.querySelector('.toggleButton').addEventListener('click', () => location.reload());
     function save(event){
         event.preventDefault();
         const formData=Object.fromEntries(event.target.parentNode.parentNode.querySelectorAll('input').values().toArray().map((input)=> [input.name,  input.value]));
@@ -68,7 +69,7 @@ function displayStudents(){
     }
     if(students.length===0){
         const emptyDisplay=`<img src="/public/images/emptyIcon.png" alt="emptyIcon" class="opacity-20 w-[80%]">
-                <p class="text-2xl font-bold text-gray-400">No Data Available. Please Register Above</p>`;
+                <p class="md:scrollbar-none text-2xl font-bold text-gray-400">No Data Available. Please Register Above</p>`;
         display.innerHTML+=emptyDisplay;
         return;
     }
@@ -83,40 +84,40 @@ function displayStudents(){
                         </button>
                     </div>
                     <div class="hiddenBlock">
-                        <p class="col-span-3 text-start flex items-center overflow-hidden text-blue-800 font-bold font-poppins">
+                        <p class="md:scrollbar-none col-span-3 text-start flex items-center overflow-hidden text-blue-800 font-bold font-poppins">
                             Name
                         </p>
-                        <p class="col-span-1 text-start flex items-center overflow-hidden font-mono text-gray-700">
+                        <p class="md:scrollbar-none col-span-1 text-start flex items-center overflow-hidden font-mono text-gray-700">
                             :
                         </p>
-                        <p class="col-span-6 text-start flex whitespace-nowrap items-center overflow-x-scroll font-mono text-gray-700 name">
+                        <p class="md:scrollbar-none col-span-6 text-start flex whitespace-nowrap items-center overflow-x-scroll font-mono text-gray-700 name">
                             ${student.name}
                         </p>
-                        <p class="col-span-3 text-start flex items-center overflow-hidden text-blue-800 font-bold font-poppins">
+                        <p class="md:scrollbar-none col-span-3 text-start flex items-center overflow-hidden text-blue-800 font-bold font-poppins">
                             Id
                         </p>
-                        <p class="col-span-1 text-start flex items-center overflow-hidden font-mono text-gray-700">
+                        <p class="md:scrollbar-none col-span-1 text-start flex items-center overflow-hidden font-mono text-gray-700">
                             :
                         </p>
-                        <p class="col-span-6 text-start flex whitespace-nowrap items-center overflow-x-scroll font-mono text-gray-700 id">
+                        <p class="md:scrollbar-none col-span-6 text-start flex whitespace-nowrap items-center overflow-x-scroll font-mono text-gray-700 id">
                             ${student.id}
                         </p>
-                        <p class="col-span-3 text-start flex items-center overflow-hidden text-blue-800 font-bold font-poppins">
+                        <p class="md:scrollbar-none col-span-3 text-start flex items-center overflow-hidden text-blue-800 font-bold font-poppins">
                             Email
                         </p>
-                        <p class="col-span-1 text-start flex items-center overflow-hidden font-mono text-gray-700">
+                        <p class="md:scrollbar-none col-span-1 text-start flex items-center overflow-hidden font-mono text-gray-700">
                             :
                         </p>
-                        <p class="col-span-6 text-start flex whitespace-nowrap items-center overflow-x-scroll font-mono text-gray-700 email">
+                        <p class="md:scrollbar-none col-span-6 text-start flex whitespace-nowrap items-center overflow-x-scroll font-mono text-gray-700 email">
                             ${student.email}
                         </p>
-                        <p class="col-span-3 text-start flex items-center overflow-hidden text-blue-800 font-bold font-poppins">
+                        <p class="md:scrollbar-none col-span-3 text-start flex items-center overflow-hidden text-blue-800 font-bold font-poppins">
                             Contact
                         </p>
-                        <p class="col-span-1 text-start flex items-center overflow-hidden font-mono text-gray-700">
+                        <p class="md:scrollbar-none col-span-1 text-start flex items-center overflow-hidden font-mono text-gray-700">
                             :
                         </p>
-                        <p class="col-span-6 text-start flex whitespace-nowrap items-center overflow-x-scroll font-mono text-gray-700 contact">
+                        <p class="md:scrollbar-none col-span-6 text-start flex whitespace-nowrap items-center overflow-x-scroll font-mono text-gray-700 contact">
                             ${student.contact}
                         </p>
                         <div class="col-start-5 col-span-6 row-span-4 flex justify-around items-center options">
@@ -152,12 +153,12 @@ function validateAndAdd(formData, type='submit'){
             localStorage.setItem(formData.id, JSON.stringify(formData));
             if(type=='save'){
                 alert("Student Details Modified Successfully");
+                location.reload();
             }
             else if(type=='submit'){
                 alert("Student Added Successfully");
+                location.reload();
             }
-            document.getElementById("form").reset();
-            location.reload();
         }
     }
 }

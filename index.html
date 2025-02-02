@@ -15,12 +15,12 @@
 
 <!-- Body Starts -->
 
-<body class="flex flex-col w-dvw justify-start items-center">
+<body class="flex flex-col w-[100vw] justify-start items-center overflow-x-hidden xl:overflow-y-hidden">
 
     <!-- Header Starts -->
 
     <header class="h-[15vh] w-[100%] flex flex-col justify-center items-center bg-blue-500">
-        <h1 class="text-center font-bold font-poppins text-3xl text-gray-200">Campus Connect</h1>
+        <h1 class="text-center font-bold font-poppins text-3xl text-gray-200 xl:text-5xl tracking-wide">Campus Connect</h1>
     </header>
 
     <!-- Header Ends -->
@@ -40,48 +40,55 @@
 
     <!-- Main Starts -->
 
-    <main id="main" class="w-[100%] bg-gradient-to-tr from-blue-200 to-pink-200/80 flex flex-row justify-center items-start flex-wrap gap-[7vh] xl:pt-10">
+    <main id="main" class="w-[100%] bg-gradient-to-tr from-blue-200 to-pink-200/80 flex flex-row justify-center items-start flex-wrap gap-[7vh] xl:pt-8 xl:gap-x-[10%] xl:overflow-hidden">
 
         <blockquote class="font-poppins font-bold text-blue-800 w-[100%] text-center text-2xl hidden xl:flex xl:justify-center xl:items-center">
-            Welcome to Campus Connect - Register the Student Details Below
+            Welcome to Campus Connect - Platform to Register and Modify Student Details.
         </blockquote>
 
         <!-- Registration Section Starts -->
 
-        <section class="h-[78vh] flex flex-col justify-start gap-[6%] items-center px-4 py-8 w-[100%] md:w-[70%] lg:w-[60%] xl:w-[35%] xl:h-[85vh]">
+        <section class="h-[78vh] flex flex-col justify-start gap-[6%] items-center px-4 py-8 w-[100%] md:h-[84vh] md:w-[70%] lg:w-[60%] xl:w-[28%] xl:h-[70vh] xl:p-0 xl:gap-[4%]">
+            
+            <!-- Quote that appears upto xl break point -->
+
             <blockquote class="font-poppins font-bold text-blue-800 text-center xl:hidden">
                 Welcome to Campus Connect - Register the Student Details Below
             </blockquote>
 
+            <!-- Heading that appears only from xl break point -->
+
+            <h2 class="hidden text-blue-700 text-3xl font-bold font-poppins xl:flex">Registation Section</h2>
+
             <!-- Form Starts -->
 
-            <form action="./index.html" class="bg-white/20 flex flex-col w-[100%] justify-around items-center font-mono tracking-widest rounded-2xl py-3 px-4 h-[72%] border-1 border-slate-500 shadow-lg" id="form">
+            <form action="./index.html" class="bg-white/20 flex flex-col w-[100%] justify-around items-center font-mono tracking-widest rounded-2xl py-3 px-4 h-[72%] border-1 border-slate-500 shadow-lg text-blue-800 font-bold text-lg xl:h-[82%]" id="form">
 
                 <!-- Name Input -->
 
                 <div class="formElement">
-                    <label for="name" class="w-[100%] text-blue-800 font-bold text-base">Student Name</label>
+                    <label for="name" class="w-[100%]">Student Name</label>
                     <input class="input" type="text" name="name" placeholder="Rohit Varma Datla" required>
                 </div>
 
                 <!-- Id Input -->
 
                 <div class="formElement">
-                    <label for="id" class="w-[100%] text-blue-800 font-bold text-base">Student ID</label>
+                    <label for="id" class="w-[100%]">Student ID</label>
                     <input class="input" type="number" name="id" placeholder="001" required>
                 </div>
 
                 <!-- Email Input -->
 
                 <div class="formElement">
-                    <label for="email" class="w-[100%] text-blue-800 font-bold text-base">Email</label>
+                    <label for="email" class="w-[100%]">Email</label>
                     <input class="input invalid:text-pink-600 invalid:border-none invalid:focus:outline-pink-600" type="email" name="email" placeholder="youremail@optional.com">
                 </div>
 
                 <!-- Contact Input -->
 
                 <div class="formElement">
-                    <label for="contact" class="w-[100%] text-blue-800 font-bold text-base">Contact No</label>
+                    <label for="contact" class="w-[100%]">Contact No</label>
                     <input class="input" type="number" name="contact" placeholder="9876543210" required>
                 </div>
 
@@ -98,9 +105,9 @@
 
         <!-- Display Section Starts -->
 
-        <section id="displaySection" class="flex flex-col justify-start items-center h-[100vh] w-[100%] text-blue-700 px-4 py-7 gap-[4%] md:w-[70%] lg:w-[60%] xl:w-[40%]">
+        <section id="displaySection" class="flex flex-col justify-start items-center h-[100vh] w-[100%] text-blue-700 px-4 py-7 gap-[4%] md:w-[70%] lg:w-[60%] xl:w-[40%] xl:p-0 xl:gap-[4%] xl:h-[70vh]">
             <h2 class="text-3xl font-poppins font-bold">Student Details</h2>
-            <div id="display" class="flex flex-col justify-start gap-[2%] items-center bg-white/20 h-[72%] w-[100%] rounded-2xl border-1 border-slate-500 overflow-scroll p-3 font-sans">
+            <div id="display" class="flex flex-col justify-start gap-[2%] items-center bg-white/20 h-[72%] w-[100%] rounded-2xl border-1 border-slate-500 overflow-x-hidden p-3 font-sans xl:h-[82%] xl:gap-[4%] sm:overflow-y-auto sm:scrollbar-thin sm:scrollbar-thumb-blue-400 sm:scrollbar-track-gray-300">
 
                 <!-- Adds Rows Dynamically Using JS -->
                  
