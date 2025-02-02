@@ -148,6 +148,9 @@ function validateAndAdd(formData, type='submit'){
     if(formData.contact.length!=10){
         errorMessages.push("INVALID CONTACT NUMBER : Contact number must have 10 digits");
     }
+    if(formData.email==""){
+        formData.email="Not Given";
+    }
     if(errorMessages.length!=0){
         alert(
             errorMessages.join('\n\n')
