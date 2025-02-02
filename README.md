@@ -1,9 +1,8 @@
-Here's a detailed and professional README template customized for your **Campus Connect** project:  
-
----
 
 ```markdown
 # 🌐 Campus Connect
+
+Website-Link : https://campus-connect-zeta.vercel.app/
 
 A sleek and professional web application designed for managing student data seamlessly. Built with modern web technologies and an intuitive user interface, Campus Connect allows administrators to efficiently register, edit, and manage student information.
 
