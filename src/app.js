@@ -75,6 +75,7 @@ function displayStudents(){
     for(let i of Object.values(localStorage)){
         students.push(JSON.parse(i));
     }
+    students.sort((a,b)=>b.createdAt-a.createdAt);
     if(students.length===0){
         const emptyDisplay=`<img src="/public/images/emptyIcon.png" alt="emptyIcon" class="opacity-20 h-[75%]">
                 <p class="md:scrollbar-none text-2xl font-bold text-gray-400">No Data Available. Please Register Above</p>`;
@@ -179,6 +180,7 @@ function validateAndAdd(formData, type='submit'){
 function submitEvent(event){
     event.preventDefault();
     const formData=Object.fromEntries(document.querySelectorAll(".formElement>input").values().toArray().map((input)=> [input.name, input.value]));
+    formData["createdAt"]=Date.now();
     validateAndAdd(formData);
 }
 
