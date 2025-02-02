@@ -1,7 +1,10 @@
+// Editing Student Record logic
 function editStudent(event){
+    // creating variables for hidden block and its id
     const hiddenBlock=event.target.parentNode.parentNode;
     const id=hiddenBlock.querySelector('.id').innerHTML.trim();
-    const originalHiddenBlock=hiddenBlock.cloneNode(true);
+
+    // creating two arrays and iterating them for creating input elements for editing
     const oldElementNames=["name", "id", "email", "contact"];
     const oldElementTypes=["text", "number", "email", "number"];
     for(let i=0; i<4; i++){
@@ -18,6 +21,8 @@ function editStudent(event){
             inputElement.focus();
         }
     }
+
+    // modifying options block
     const optionsBlock=hiddenBlock.querySelector('.options');
     optionsBlock.classList.remove('col-start-5', 'col-span-6');
     optionsBlock.classList.add('col-span-10');
@@ -46,6 +51,7 @@ function editStudent(event){
     }
 }
 
+// logic for deleting student
 function deleteStudent(event){
     const id=event.target.parentNode.parentNode.parentNode.id;
     console.log(id.substring(2));
@@ -53,6 +59,7 @@ function deleteStudent(event){
     location.reload();
 }
 
+// logic for hiding and showing details
 function toggleDetails(event){
     event.target.classList.toggle('rotate-[180deg]');
     const id=event.target.parentNode.parentNode.id;
@@ -61,6 +68,7 @@ function toggleDetails(event){
     hiddenBlock.classList.toggle('animate-show');
 }
 
+// logic for displaying students when created.
 function displayStudents(){
     const display=document.getElementById("display");
     const students=[];
@@ -129,8 +137,9 @@ function displayStudents(){
             display.innerHTML+=studentRow;
         }
     );
-
 }
+
+// logic for validating input details
 function validateAndAdd(formData, type='submit'){
     const errorMessages=[];
     if(/^[a-z A-Z\s]{3,}$/.test(formData.name)===false){
@@ -162,6 +171,8 @@ function validateAndAdd(formData, type='submit'){
         }
     }
 }
+
+// logic for handling submit event
 function submitEvent(event){
     event.preventDefault();
     const formData=Object.fromEntries(document.querySelectorAll(".formElement>input").values().toArray().map((input)=> [input.name, input.value]));

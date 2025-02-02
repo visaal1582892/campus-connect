@@ -1,4 +1,6 @@
 @import "tailwindcss";
+
+/* customizing some tailwind utilities */
 @theme{
     --font-poppins: Poppins, sans-serif;
     --animate-show: show 0.5s linear; 
@@ -15,8 +17,10 @@
     } 
 }
 
+/* Adding plugin for styling scrollbar */
 @plugin "tailwind-scrollbar";
 
+/* Storing large tailwind classes to improve readability in html page */
 @layer components{
     .input{
         @apply h-[50%] text-slate-700 font-semibold w-[100%] rounded-lg border-[1px] focus:outline-2 focus:outline-blue-500 border-gray-500/50 shadow-md px-2 text-base placeholder:text-base placeholder:font-light placeholder:text-gray-500/60 lg:text-xl;
