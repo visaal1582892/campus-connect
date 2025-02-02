@@ -72,8 +72,8 @@ function toggleDetails(event){
 function displayStudents(){
     const display=document.getElementById("display");
     const students=[];
-    for(let i of Object.keys(localStorage)){
-        students.unshift(JSON.parse(localStorage.getItem(i)));
+    for(let i of Object.values(localStorage)){
+        students.push(JSON.parse(i));
     }
     if(students.length===0){
         const emptyDisplay=`<img src="/public/images/emptyIcon.png" alt="emptyIcon" class="opacity-20 h-[75%]">
