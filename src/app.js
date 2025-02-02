@@ -13,7 +13,13 @@ function editStudent(event){
         inputElement.className='editInput';
         inputElement.type=`.${oldElementTypes[i]}`;
         inputElement.placeholder='Enter New Value';
-        inputElement.value=oldElement.textContent.trim();
+        const oldValue=oldElement.textContent.trim();
+        if (oldValue=="Not Given") {
+            inputElement.value="";    
+        }
+        else{
+            inputElement.value=oldValue;
+        }
         inputElement.setAttribute('name', `${oldElementNames[i]}`);
         inputElement.setAttribute('required', `${oldElementNames[i]}`!='email');
         oldElement.replaceWith(inputElement);
@@ -41,6 +47,7 @@ function editStudent(event){
         console.log(hiddenBlock);
         if(id==formData.id || localStorage.getItem(formData.id)===null){
             localStorage.removeItem(id);
+            formData.createdAt=Date.now();
             validateAndAdd(formData, 'save');
         }
         else{

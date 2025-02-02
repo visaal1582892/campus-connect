@@ -941,6 +941,24 @@
       line-height: var(--tw-leading, var(--text-4xl--line-height));
     }
   }
+  .lg\:text-base {
+    @media (width >= 64rem) {
+      font-size: var(--text-base);
+      line-height: var(--tw-leading, var(--text-base--line-height));
+    }
+  }
+  .lg\:text-lg {
+    @media (width >= 64rem) {
+      font-size: var(--text-lg);
+      line-height: var(--tw-leading, var(--text-lg--line-height));
+    }
+  }
+  .lg\:text-sm {
+    @media (width >= 64rem) {
+      font-size: var(--text-sm);
+      line-height: var(--tw-leading, var(--text-sm--line-height));
+    }
+  }
 }
 @layer components {
   .input {
@@ -976,14 +994,10 @@
     &:focus {
       outline-color: var(--color-blue-500);
     }
-    @media (width >= 64rem) {
-      font-size: var(--text-lg);
-      line-height: var(--tw-leading, var(--text-lg--line-height));
-    }
   }
   .formElement {
     display: flex;
-    height: 20%;
+    height: 16%;
     width: 100%;
     flex-direction: column;
     align-items: center;
@@ -1038,7 +1052,7 @@
     line-height: var(--tw-leading, var(--text-xl--line-height));
     color: var(--color-gray-200);
     @media (width >= 48rem) {
-      height: calc(var(--spacing) * 14);
+      height: calc(var(--spacing) * 12);
     }
   }
   .studentBlock {
@@ -1103,10 +1117,10 @@
     --tw-duration: 400ms;
     transition-duration: 400ms;
     @media (width >= 48rem) {
-      height: calc(var(--spacing) * 11);
+      height: calc(var(--spacing) * 10);
     }
     @media (width >= 48rem) {
-      width: calc(var(--spacing) * 11);
+      width: calc(var(--spacing) * 10);
     }
   }
   .editInput {

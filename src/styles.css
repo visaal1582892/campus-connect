@@ -23,11 +23,11 @@
 /* Storing large tailwind classes to improve readability in html page */
 @layer components{
     .input{
-        @apply h-[50%] text-slate-700 font-semibold w-[100%] rounded-lg border-[1px] focus:outline-2 focus:outline-blue-500 border-gray-500/50 shadow-md px-2 text-base placeholder:text-base placeholder:font-light placeholder:text-gray-500/60 lg:text-lg;
+        @apply h-[50%] text-slate-700 font-semibold w-[100%] rounded-lg border-[1px] focus:outline-2 focus:outline-blue-500 border-gray-500/50 shadow-md px-2 text-base placeholder:text-base placeholder:font-light placeholder:text-gray-500/60;
     }
 
     .formElement{
-        @apply flex flex-col h-[20%] w-[100%] justify-center items-center gap-[5%];
+        @apply flex flex-col h-[16%] w-[100%] justify-center items-center gap-[5%];
     }
 
     .hiddenBlock{
@@ -35,7 +35,7 @@
     }
 
     .visibleBlock{
-        @apply bg-blue-500 text-gray-200 w-[100%] flex rounded-2xl items-center text-xl font-poppins justify-between h-14 px-4 shrink-0 grow md:h-14;
+        @apply bg-blue-500 text-gray-200 w-[100%] flex rounded-2xl items-center text-xl font-poppins justify-between h-14 px-4 shrink-0 grow md:h-12;
     }
 
     .studentBlock{
@@ -48,7 +48,7 @@
     }
 
     .toggleButton{
-        @apply bg-gradient-to-bl from-blue-300 to-pink-200 h-10 w-10 flex items-center justify-center rounded-full text-blue-800 transition-transform duration-400 cursor-pointer md:h-11 md:w-11;
+        @apply bg-gradient-to-bl from-blue-300 to-pink-200 h-10 w-10 flex items-center justify-center rounded-full text-blue-800 transition-transform duration-400 cursor-pointer md:h-10 md:w-10;
     }
 
     .editInput{
