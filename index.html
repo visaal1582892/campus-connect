@@ -27,7 +27,7 @@
 
     <!-- Floating Navbar Starts -->
 
-    <nav class="w-[100%] h-[8vh] fixed top-[90%] flex flex-row justify-around items-center p-0.5 opacity-70 z-10">
+    <nav class="w-[100%] h-[8vh] fixed top-[88%] flex flex-row justify-around items-center p-0.5 opacity-70 z-10 sm:justify-center sm:gap-[20%] xl:hidden">
         <a href="#" class="h-[100%] flex justify-center items-center">
             <img src="/public/images/homeIcon.png" alt="homeIcon" class="h-[100%] rounded-full shadow-xl">
         </a>
@@ -40,12 +40,16 @@
 
     <!-- Main Starts -->
 
-    <main id="main" class="w-[100%] bg-gradient-to-tr from-blue-200 to-pink-200/80 flex flex-row justify-center items-start flex-wrap gap-[7vh]">
+    <main id="main" class="w-[100%] bg-gradient-to-tr from-blue-200 to-pink-200/80 flex flex-row justify-center items-start flex-wrap gap-[7vh] xl:pt-10">
+
+        <blockquote class="font-poppins font-bold text-blue-800 w-[100%] text-center text-2xl hidden xl:flex xl:justify-center xl:items-center">
+            Welcome to Campus Connect - Register the Student Details Below
+        </blockquote>
 
         <!-- Registration Section Starts -->
 
-        <section class="h-[78vh] flex flex-col justify-start gap-[6%] items-center px-4 py-8 w-[100%]">
-            <blockquote class="font-poppins font-bold text-blue-800 text-center">
+        <section class="h-[78vh] flex flex-col justify-start gap-[6%] items-center px-4 py-8 w-[100%] md:w-[70%] lg:w-[60%] xl:w-[35%] xl:h-[85vh]">
+            <blockquote class="font-poppins font-bold text-blue-800 text-center xl:hidden">
                 Welcome to Campus Connect - Register the Student Details Below
             </blockquote>
 
@@ -94,7 +98,7 @@
 
         <!-- Display Section Starts -->
 
-        <section id="displaySection" class="flex flex-col justify-start items-center h-[100vh] w-[100%] text-blue-700 px-4 py-7 gap-[4%]">
+        <section id="displaySection" class="flex flex-col justify-start items-center h-[100vh] w-[100%] text-blue-700 px-4 py-7 gap-[4%] md:w-[70%] lg:w-[60%] xl:w-[40%]">
             <h2 class="text-3xl font-poppins font-bold">Student Details</h2>
             <div id="display" class="flex flex-col justify-start gap-[2%] items-center bg-white/20 h-[72%] w-[100%] rounded-2xl border-1 border-slate-500 overflow-scroll p-3 font-sans">
 

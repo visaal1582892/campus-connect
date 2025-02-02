@@ -1,5 +1,6 @@
 function editStudent(event){
     const hiddenBlock=event.target.parentNode.parentNode;
+    const id=hiddenBlock.querySelector('.id').innerHTML.trim();
     const originalHiddenBlock=hiddenBlock.cloneNode(true);
     const oldElementNames=["name", "id", "email", "contact"];
     const oldElementTypes=["text", "number", "email", "number"];
@@ -11,7 +12,6 @@ function editStudent(event){
         inputElement.placeholder='Enter New Value';
         inputElement.value=oldElement.textContent.trim();
         inputElement.setAttribute('name', `${oldElementNames[i]}`);
-        console.log(`${oldElementNames[i]}`!='email');
         inputElement.setAttribute('required', `${oldElementNames[i]}`!='email');
         oldElement.replaceWith(inputElement);
         if(i===0){
@@ -28,12 +28,20 @@ function editStudent(event){
         Cancel
     </button>`
     optionsBlock.querySelector('.saveButton').addEventListener('click', save);
-    // optionsBlock.querySelector('.cancelButton').addEventListener('click', );
+    optionsBlock.querySelector('.cancelButton').addEventListener('click', () => location.reload());
     function save(event){
         event.preventDefault();
         const formData=Object.fromEntries(event.target.parentNode.parentNode.querySelectorAll('input').values().toArray().map((input)=> [input.name,  input.value]));
-        localStorage.removeItem(formData.id);
-        validateAndAdd(formData, 'save');
+        console.log(hiddenBlock);
+        if(id==formData.id || localStorage.getItem(formData.id)===null){
+            localStorage.removeItem(id);
+            validateAndAdd(formData, 'save');
+        }
+        else{
+            if(localStorage.getItem(formData.id)!==null){
+                alert("ERROR : Given Student Id already exists enter new one");
+            }
+        }
     }
 }
 
