@@ -9,25 +9,25 @@
     <meta name="keywords" content="campus connect, student, registration, html, css, javascript">
     <meta name="robots" content="INDEX, FOLLOW">
     <title>Student Registration System</title>
-    <link rel="stylesheet" href="/src/output.css">
+    <link rel="stylesheet" href="./src/output.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Poppins&family=Roboto&family=Nunito&display=swap" rel="stylesheet">
 </head>
 
 <!-- Body Starts -->
 
-<body class="flex flex-col w-[100vw] justify-start items-center overflow-x-hidden xl:overflow-y-hidden">
+<body class="flex flex-col w-[100vw] justify-start items-center overflow-x-hidden lg:overflow-y-hidden">
 
     <!-- Header Starts -->
 
     <header class="h-[15vh] w-[100%] flex flex-col justify-center items-center bg-blue-500">
-        <h1 class="text-center font-bold font-poppins text-3xl text-gray-200 xl:text-5xl tracking-wide">Campus Connect</h1>
+        <h1 class="text-center font-bold font-poppins text-3xl text-gray-200 lg:text-4xl tracking-wide">Campus Connect</h1>
     </header>
 
     <!-- Header Ends -->
 
     <!-- Floating Navbar Starts -->
 
-    <nav class="w-[100%] h-[8vh] fixed top-[88%] flex flex-row justify-around items-center p-0.5 opacity-70 z-10 sm:justify-center sm:gap-[20%] xl:hidden">
+    <nav class="w-[100%] h-[8vh] fixed top-[88%] flex flex-row justify-around items-center p-0.5 opacity-70 z-10 sm:justify-center sm:gap-[20%] lg:hidden">
         <a href="#" class="h-[100%] flex justify-center items-center">
             <img src="/public/images/homeIcon.png" alt="homeIcon" class="h-[100%] rounded-full shadow-xl">
         </a>
@@ -40,29 +40,29 @@
 
     <!-- Main Starts -->
 
-    <main id="main" class="w-[100%] bg-gradient-to-tr from-blue-200 to-pink-200/80 flex flex-row justify-center items-start flex-wrap gap-[7vh] xl:pt-8 xl:gap-x-[10%] xl:overflow-hidden">
+    <main id="main" class="w-[100%] bg-gradient-to-tr from-blue-200 to-pink-200/80 flex flex-row justify-center items-start flex-wrap gap-[7vh] lg:pt-8 lg:gap-x-[10%] lg:overflow-hidden">
 
-        <blockquote class="font-poppins font-bold text-blue-800 w-[100%] text-center text-2xl hidden xl:flex xl:justify-center xl:items-center">
+        <blockquote class="font-poppins font-bold text-blue-800 w-[100%] text-center text-md hidden lg:flex lg:justify-center lg:items-center">
             Welcome to Campus Connect - Platform to Register and Modify Student Details.
         </blockquote>
 
         <!-- Registration Section Starts -->
 
-        <section class="h-[78vh] flex flex-col justify-start gap-[6%] items-center px-4 py-8 w-[100%] md:h-[84vh] md:w-[70%] lg:w-[60%] xl:w-[28%] xl:h-[70vh] xl:p-0 xl:gap-[4%]">
+        <section class="h-[78vh] flex flex-col justify-start gap-[6%] items-center px-4 py-8 w-[100%] md:h-[84vh] md:w-[70%] lg:w-[28%] lg:h-[70vh] lg:p-0 lg:gap-[4%]">
             
             <!-- Quote that appears upto xl break point -->
 
-            <blockquote class="font-poppins font-bold text-blue-800 text-center xl:hidden">
+            <blockquote class="font-poppins font-bold text-blue-800 text-center lg:hidden">
                 Welcome to Campus Connect - Register the Student Details Below
             </blockquote>
 
             <!-- Heading that appears only from xl break point -->
 
-            <h2 class="hidden text-blue-700 text-3xl font-bold font-poppins xl:flex">Registation Section</h2>
+            <h2 class="hidden text-blue-700 text-2xl font-bold font-poppins lg:flex">Registation Section</h2>
 
             <!-- Form Starts -->
 
-            <form action="./index.html" class="bg-white/20 flex flex-col w-[100%] justify-around items-center font-mono tracking-widest rounded-2xl py-3 px-4 h-[72%] border-1 border-slate-500 shadow-lg text-blue-800 font-bold text-lg xl:h-[82%]" id="form">
+            <form action="./index.html" class="bg-white/20 flex flex-col w-[100%] justify-around items-center font-mono tracking-widest rounded-2xl py-3 px-4 h-[72%] border-1 border-slate-500 shadow-lg text-blue-800 font-bold text-base lg:h-[82%]" id="form">
 
                 <!-- Name Input -->
 
@@ -105,9 +105,9 @@
 
         <!-- Display Section Starts -->
 
-        <section id="displaySection" class="flex flex-col justify-start items-center h-[100vh] w-[100%] text-blue-700 px-4 py-7 gap-[4%] md:w-[70%] lg:w-[60%] xl:w-[40%] xl:p-0 xl:gap-[4%] xl:h-[70vh]">
-            <h2 class="text-3xl font-poppins font-bold">Student Details</h2>
-            <div id="display" class="flex flex-col justify-start gap-[2%] items-center bg-white/20 h-[72%] w-[100%] rounded-2xl border-1 border-slate-500 overflow-x-hidden p-3 font-sans xl:h-[82%] xl:gap-[4%] sm:overflow-y-auto sm:scrollbar-thin sm:scrollbar-thumb-blue-400 sm:scrollbar-track-gray-300">
+        <section id="displaySection" class="flex flex-col justify-start items-center h-[100vh] w-[100%] text-blue-700 px-4 py-7 gap-[4%] md:w-[70%] lg:w-[40%] lg:p-0 lg:gap-[4%] lg:h-[70vh]">
+            <h2 class="text-2xl font-poppins font-bold">Student Details</h2>
+            <div id="display" class="flex flex-col justify-start gap-[2%] items-center bg-white/20 h-[72%] w-[100%] rounded-2xl border-1 border-slate-500 overflow-x-hidden p-3 font-sans lg:h-[82%] lg:gap-[4%] sm:overflow-y-auto sm:scrollbar-thin sm:scrollbar-thumb-blue-400 sm:scrollbar-track-gray-300">
 
                 <!-- Adds Rows Dynamically Using JS -->
                  
@@ -122,7 +122,7 @@
 
     <!-- Linking Js File -->
 
-    <script src="/src/app.js"></script>
+    <script src="./src/app.js"></script>
 </body>
 <!-- Body Ends -->
 

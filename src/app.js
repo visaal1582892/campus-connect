@@ -76,7 +76,7 @@ function displayStudents(){
         students.unshift(JSON.parse(localStorage.getItem(i)));
     }
     if(students.length===0){
-        const emptyDisplay=`<img src="/public/images/emptyIcon.png" alt="emptyIcon" class="opacity-20 w-[80%]">
+        const emptyDisplay=`<img src="/public/images/emptyIcon.png" alt="emptyIcon" class="opacity-20 h-[75%]">
                 <p class="md:scrollbar-none text-2xl font-bold text-gray-400">No Data Available. Please Register Above</p>`;
         display.innerHTML+=emptyDisplay;
         return;
