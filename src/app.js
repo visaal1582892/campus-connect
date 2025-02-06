@@ -154,6 +154,9 @@ function validateAndAdd(formData, type='submit'){
     if(/^[a-z A-Z\s]{3,}$/.test(formData.name)===false){
         errorMessages.push("INVALID STUDENT NAME : Name should contain only alphabets with at least 3 characters");
     }
+    if(formData.id.length<=0 || formData.id==0){
+        errorMessages.push("INVALID ID : Id cannot be empty or 0.");
+    }
     if(formData.contact.length!=10){
         errorMessages.push("INVALID CONTACT NUMBER : Contact number must have 10 digits");
     }
