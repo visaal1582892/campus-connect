@@ -163,6 +163,9 @@ function validateAndAdd(formData, type='submit'){
     if(formData.email==""){
         formData.email="Not Given";
     }
+    else if(/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(formData.email)==false){
+        errorMessages.push("INVALID EMAIL : Enter valid email ID or leave it blank(optional)");
+    }
     if(errorMessages.length!=0){
         alert(
             errorMessages.join('\n\n')
